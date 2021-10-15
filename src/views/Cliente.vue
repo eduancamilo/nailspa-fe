@@ -6,7 +6,7 @@
                 
         <div class="container">
             <div class="row">
-                <div id="formulario" class="col-lg-6 col-md-6 col-sm-6 col-xs-12" @submit.prevent="citas()"> 
+                <div id="formulario" class="col-lg-6 col-md-6 col-sm-6 col-xs-12" ref="registerForm" @submit.prevent="citas()"> 
                     
                     <form action="https://www.w3schools.com/action_page.php" method="POST" target="_blank">
                         
@@ -20,11 +20,11 @@
                         </div>
                         <div class="campos-formulario form-group">
                             <label>Fecha de cita (*)</label>
-                            <input type="text" class="form-control" id="Fecha de cita" name="Fecha de cita"  v-model="cita.c_date">
+                            <input type="date" class="form-control" id="Fecha de cita" name="Fecha de cita"  v-model="cita.c_date">
                         </div>
                         <div class="campos-formulario form-group">
                             <label>Hora de cita (*)</label>
-                            <input type="text" class="form-control" id="Hora de cita" name="Hora de cita" placeholder="Ingrese hora de cita" required v-model="cita.c_time">
+                            <input type="time" class="form-control" id="Hora de cita" name="Hora de cita" placeholder="Ingrese hora de cita" required v-model="cita.c_time">
                         </div>
                         <div class="campos-formulario form-group">
                             <label>Correo electrónico (*)</label>
@@ -89,13 +89,14 @@
 export default {
   data:()=>({
 
-      cita:{cli_name:'',cli_lastname:'',c_date:'',c_time:'',email:'',cli_address:'',cli_telephone:'',c_s_id:'',c_u_id:'2',c_cli_id:'104'}
+      cita:{cli_name:'',cli_lastname:'',c_date:'',c_time:'',email:'',cli_address:'',cli_telephone:'',c_s_id:'',c_u_id:'2',c_cli_id:'110'}
 
   }),
   methods:{
        async citas(){
            try {
                  const res = await this.axios.post('aliado/cita',this.cita);
+                 this.$refs.registerForm.reset();
                  console.log(res);
             
              } catch (error) {
