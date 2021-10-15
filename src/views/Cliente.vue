@@ -24,7 +24,7 @@
                         </div>
                         <div class="campos-formulario form-group">
                             <label>Hora de cita (*)</label>
-                            <input type="time" class="form-control" id="Hora de cita" name="Hora de cita" placeholder="Ingrese hora de cita" required>
+                            <input type="time" class="form-control" id="Hora de cita" name="Hora de cita" placeholder="Ingrese hora de cita" required v-model="cita.c_time">
                         </div>
                         <div class="campos-formulario form-group">
                             <label>Correo electrónico (*)</label>
@@ -89,7 +89,7 @@
 export default {
   data:()=>({
 
-      cita:{cli_name:'c',cli_lastname:'c',c_date:'2021/12/23',c_time:'14:00:00',cli_email:'c@gmail.com',cli_address:'c',cli_telephone:'1',c_s_id:'1',c_u_id:'2',c_cli_id:'76'}
+      cita:{cli_name:'',cli_lastname:'',c_date:'',c_time:'',cli_email:'',cli_address:'',cli_telephone:'',c_s_id:'',c_u_id:'2',c_cli_id:'85'}
 
   }),
   methods:{
@@ -98,7 +98,7 @@ export default {
            //this.axios.post('/cita',this.cita)
          // console.log(this.cita)
           try {
-                 const res = await this.axios.post('/cita',this.cita);
+                 const res = await this.axios.post('aliado/cita',this.cita);
                  console.log(res);
             
              } catch (error) {
