@@ -28,7 +28,7 @@
                         </div>
                         <div class="campos-formulario form-group">
                             <label>Correo electrónico (*)</label>
-                            <input type="email" class="form-control" id="mail" name="mail" placeholder="Correo electrónico" required v-model="cita.cli_email">
+                            <input type="email" class="form-control" id="mail" name="mail" placeholder="Correo electrónico" required v-model="cita.email">
                         </div>
                         <div class="campos-formulario form-group">
                             <label>Dirección (*)</label>
@@ -89,15 +89,12 @@
 export default {
   data:()=>({
 
-      cita:{cli_name:'',cli_lastname:'',c_date:'',c_time:'',email:'',cli_address:'',cli_telephone:'',c_s_id:'',c_u_id:'2',c_cli_id:'94'}
+      cita:{cli_name:'',cli_lastname:'',c_date:'',c_time:'',email:'',cli_address:'',cli_telephone:'',c_s_id:'',c_u_id:'2',c_cli_id:'104'}
 
   }),
   methods:{
        async citas(){
-
-           //this.axios.post('/cita',this.cita)
-         // console.log(this.cita)
-          try {
+           try {
                  const res = await this.axios.post('aliado/cita',this.cita);
                  console.log(res);
             
