@@ -45,7 +45,7 @@
              try {
                  const res = await this.axios.post('/login', this.user);
                  console.log(res);
-             // eslint-disable-next-line no-empty
+    
              } catch (error) {
                  console.log('error')
                  }
